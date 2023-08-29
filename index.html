@@ -8,9 +8,10 @@
 </head>
 <body>
     <header>
-        <input type="text" placeholder="Search a card" id="searcher">
-        <button>Search</button>
         <img src="https://ms.yugipedia.com//thumb/e/e5/Back-EN.png/257px-Back-EN.png" id="card">
+        <input type="text" placeholder="Search a card" id="searcher">
+        <div id="suggestions"></div>
+        <button>Search</button>
     </header>
     <div class ="info">
         <div class="stats">
@@ -24,25 +25,39 @@
         </div>
 
         <div class="stats">
-            <h1 clas="value">EFFECT</h1>
-            <p id="effect"></p>
-        </div>
-
-        <div class="stats">
             <h1 class="value">TYPE</h1>
-            <h2 id="type"></h2>
+            <span id="type"></span>
+            <div class="content">
+            <span id="race">Race : </span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Starball_Red.svg/1200px-Starball_Red.svg.png" id="raceIcon" style="width: 27px; vertical-align:middle;">
+            </div>
+            <div class="content">
+                <span id="attribute">attribute : </span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Starball_Red.svg/1200px-Starball_Red.svg.png" id="elementIcon" style="width: 27px; vertical-align:middle;">
+            </div>
+    
         </div>
 
         <div class="stats">
             <h1 class="value">LEVEL</h1>
-            <h2 id="level"></h2>
+            <div class="content">
+            <span id="level"></span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Starball_Red.svg/1200px-Starball_Red.svg.png" id="star" style="width: 27px; vertical-align:middle;">
+            </div>
         </div>
-
+        
         <div class="stats">
-            <h1 class="value">PLAYRATE</h1>
-            <h2 id="playrate"></h2>
+            <h1 class="value">PRICE</h1>
+            <h2 id="price"></h2>
         </div>
     </div>
+    
+    <div class="stats">
+        <h1 clas="value">EFFECT</h1>
+        <p id="effect"></p>
+    </div>
+    
     <script src="script.js"></script>
+    <script src="suggest.js"></script>
 </body>
 </html>

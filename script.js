@@ -6,6 +6,12 @@ var effect = document.querySelector('#effect');
 var type = document.querySelector('#type');
 var level = document.querySelector('#level');
 var playrate = document.querySelector('#playrate');
+var price = document.querySelector('#price');
+var raceIcon = document.querySelector('#raceIcon');
+var elementIcon = document.querySelector('#elementIcon');
+
+var race = document.querySelector('#race');
+var element = document.querySelector('#element');
 
 document.querySelector('button').addEventListener('click', async() => {
     var request = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name="+document.getElementById("searcher").value;
@@ -19,5 +25,17 @@ document.querySelector('button').addEventListener('click', async() => {
     effect.innerHTML = "Effect: " + jsonResult.data[0].desc;
     type.innerHTML = "Type: " + jsonResult.data[0].type;
     level.innerHTML = "Level: " + jsonResult.data[0].level;
-    playrate.innerHTML = "Play Rate: " + jsonResult.data[0].card_prices[0].cardmarket_price;
+    price.innerHTML = "Price: " + jsonResult.data[0].card_prices[0].tcgplayer_price +"$";
+    
+    if(jsonResult.data[0].type.toString().includes("Monster")){
+    raceIcon.src = "races/"+jsonResult.data[0].race+".png";
+    elementIcon.src = "elements/"+jsonResult.data[0].attribute+".png";
+    }
+    else{
+        level.display = "none";
+        elementIcon.display = "none";
+        element.display = "none";
+        raceIcon.display = "none";
+        race.display = "none";
+    }
 });
